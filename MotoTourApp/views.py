@@ -11,3 +11,9 @@ class IndexView(ListView):
     context_object_name = 'post_list'
     def get_queryset(self):
         return Post.objects.all()
+
+
+# Detail
+class PostDetailView(DetailView):
+    model=Post
+    template_name = 'MotoTourApp/post-detail.html'
