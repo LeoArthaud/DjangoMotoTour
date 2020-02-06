@@ -28,3 +28,13 @@ def postview(request):
         return redirect('index')
     form = PostForm()
     return render(request,'MotoTourApp/post.html',{'form': form})
+
+
+# Edit
+def edit(request, pk, template_name='MotoTourApp/edit.html'):
+    post= get_object_or_404(Post, pk=pk)
+    form = PostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    return render(request, template_name, {'form':form})
