@@ -17,3 +17,14 @@ class IndexView(ListView):
 class PostDetailView(DetailView):
     model=Post
     template_name = 'MotoTourApp/post-detail.html'
+
+
+# New
+def postview(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('index')
+    form = PostForm()
+    return render(request,'MotoTourApp/post.html',{'form': form})
