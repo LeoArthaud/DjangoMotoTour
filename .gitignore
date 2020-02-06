@@ -1,2 +1,8 @@
 
 .idea/
+
+MotoTourApp/__pycache__/
+
+MotoTour/__pycache__/
+
+MotoTourApp/migrations/__pycache__/
