@@ -27,7 +27,7 @@ def postview(request):
             form.save()
         return redirect('index')
     form = PostForm()
-    return render(request,'MotoTourApp/post.html',{'form': form})
+    return render(request, 'MotoTourApp/participant.html', {'form': form})
 
 
 # Edit
