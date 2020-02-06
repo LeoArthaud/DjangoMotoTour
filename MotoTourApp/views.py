@@ -38,3 +38,12 @@ def edit(request, pk, template_name='MotoTourApp/edit.html'):
         form.save()
         return redirect('index')
     return render(request, template_name, {'form':form})
+
+
+# Delete
+def delete(request, pk, template_name='MotoTourApp/confirm_delete.html'):
+    post= get_object_or_404(Post, pk=pk)
+    if request.method=='POST':
+        post.delete()
+        return redirect('index')
+    return render(request, template_name, {'object':post})
